@@ -1,34 +1,375 @@
 ﻿@model FinalProjectPL.Models.User
-@{
-    ViewBag.Title = "Login";
-}
 
-<h2>Login</h2>
+<!DOCTYPE html>
+<html>
 
-<div class="row justify-content-md-center">
-    <div class="col-md-4">
-        <div class="card">
-            <div class="card-header">
-                Login
-            </div>
-            <div class="card-body">
-                @using (Html.BeginForm("Login", "Account", FormMethod.Post))
-                {
-                    @Html.AntiForgeryToken()
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.Email)
-                        @Html.TextBoxFor(m => m.Email, "", new { @class = "form-control", @placeholder = "Email" })
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet" />
+    <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
+    <title>Test</title>
+</head>
 
-                    </div>
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.Password)
-                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" name="submit" class="btn btn-primary" value="Login" />
-                    </div>
-                }
-            </div>
+<body>
+    <style>
+        body {
+            background: url("../../images/v11_0.png");
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+        }
+        * {
+            overflow-x: hidden;
+            padding: 0px !important;
+            margin: 0px !important;
+        }
+
+        .v1_3 {
+            /*width: 100%;
+            height: 1024px;
+            background: rgba(255, 255, 255, 1);
+            opacity: 1;
+            position: relative;
+            top: 0px;
+            left: 0px;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            overflow: hidden;*/
+        }
+
+        .v11_0 {
+            /*width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            opacity: 1;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            overflow: hidden;*/
+        }
+
+        .v11_5 {
+            position: absolute;
+            width: 646px;
+            height: 103px;
+            left: 392px;
+            top: -29px;
+            background: rgba(196, 196, 196, 0.7);
+            border-radius: 20px;
+        }
+
+        .v8_10 {
+            position: absolute;
+            width: 90px;
+            height: 30px;
+            left: 388px;
+            top: 22px;
+            font-family: Poppins;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 30px;
+            /* identical to box height */
+            text-align: center;
+            color: #FFFFFF;
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+
+        .v8_11 {
+            position: absolute;
+            width: 90px;
+            height: 30px;
+            left: 498px;
+            top: 22px;
+            font-family: Poppins;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 30px;
+            /* identical to box height */
+            text-align: center;
+            color: #FFFFFF;
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+
+        .v8_12 {
+            position: absolute;
+            width: 90px;
+            height: 30px;
+            left: 608px;
+            top: 22px;
+            font-family: Poppins;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 30px;
+            /* identical to box height */
+            text-align: center;
+            color: #FFFFFF;
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+
+        .v8_13 {
+            position: absolute;
+            width: 100px;
+            height: 30px;
+            left: 718px;
+            top: 22px;
+            font-family: Poppins;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 30px;
+            /* identical to box height */
+            text-align: center;
+            color: #FFFFFF;
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+
+        .v8_14 {
+            position: absolute;
+            width: 90px;
+            height: 30px;
+            left: 838px;
+            top: 22px;
+            font-family: Poppins;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 30px;
+            /* identical to box height */
+            text-align: center;
+            color: #FFFFFF;
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+
+        .v8_15 {
+            position: absolute;
+            width: 90px;
+            height: 30px;
+            left: 948px;
+            top: 22px;
+            font-family: Poppins;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 30px;
+            /* identical to box height */
+            text-align: center;
+            color: #FFFFFF;
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+
+        .v1_4 {
+            width: 380px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0);
+            opacity: 1;
+            position: absolute;
+            top: 262px;
+            left: 530px;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            overflow: hidden;
+        }
+
+        .v1_5 {
+            position: absolute;
+            width: 66px;
+            height: 38px;
+            left: 157px;
+            top: 167px;
+            font-family: Poppins;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 25px;
+            line-height: 37px;
+        }
+
+        .v1_6 {
+            width: 251px;
+            height: 37px;
+            background: rgba(196, 196, 196, 0.800000011920929);
+            opacity: 1;
+            position: absolute;
+            top: 220px;
+            left: 82px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            overflow: hidden;
+        }
+
+        .v2_0 {
+            width: 144px;
+            height: 30px;
+            background: rgba(56, 148, 13, 1);
+            opacity: 1;
+            position: absolute;
+            top: 350px;
+            left: 118px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+        }
+
+        .v1_7 {
+            width: 251px;
+            height: 37px;
+            background: rgba(196, 196, 196, 0.800000011920929);
+            opacity: 1;
+            position: absolute;
+            top: 265px;
+            left: 82px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            overflow: hidden;
+        }
+
+        .name {
+            color: #fff;
+        }
+
+        .name {
+            color: #fff;
+        }
+
+        .v11_4 {
+            width: 51px;
+            color: rgba(255, 255, 255, 1);
+            position: absolute;
+            top: 275px;
+            left: 95px;
+            font-family: Poppins;
+            font-weight: Bold;
+            font-size: 10px;
+            opacity: 0.8899999856948853;
+            text-align: left;
+        }
+
+        .v11_3 {
+            width: 30px;
+            color: rgba(255, 255, 255, 1);
+            position: absolute;
+            top: 230px;
+            left: 95px;
+            font-family: Poppins;
+            font-weight: Bold;
+            font-size: 10px;
+            opacity: 0.8899999856948853;
+            text-align: left;
+        }
+
+        .v11_2 {
+            width: 89px;
+            color: rgba(255, 255, 255, 1);
+            position: absolute;
+            top: 357px;
+            left: 146px;
+            font-family: Poppins;
+            font-weight: Bold;
+            font-size: 10px;
+            opacity: 0.8899999856948853;
+            text-align: center;
+        }
+
+        .v8_5 {
+            position: absolute;
+            width: 216px;
+            height: 89px;
+            left: 130px;
+            top: 54px;
+            font-family: Poppins;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 35px;
+            line-height: 86.84%;
+            /* or 30px */
+            letter-spacing: -0.03em;
+            color: #000000;
+        }
+
+        .v8_6 {
+            width: 15px;
+            height: 15px;
+            background: rgba(56, 148, 13, 1);
+            opacity: 1;
+            position: absolute;
+            top: 128px;
+            left: 130px;
+            border-radius: 50%;
+        }
+
+        .v8_7 {
+            width: 12px;
+            height: 12px;
+            background: rgba(56, 148, 13, 1);
+            opacity: 1;
+            position: absolute;
+            top: 130px;
+            left: 161px;
+            border-radius: 50%;
+        }
+
+        .v8_8 {
+            width: 9px;
+            height: 8px;
+            background: rgba(56, 148, 13, 1);
+            opacity: 1;
+            position: absolute;
+            top: 132px;
+            left: 185px;
+            border-radius: 50%;
+        }
+
+        .v8_9 {
+            width: 4px;
+            height: 4px;
+            background: rgba(56, 148, 13, 1);
+            opacity: 1;
+            position: absolute;
+            top: 134px;
+            left: 209px;
+            border-radius: 50%;
+        }
+    </style>
+    <div class="v1_3">
+        <!-- <div class="v11_0"></div> -->
+        <div class="v11_5"></div>
+        <ul>
+            <li class="v8_10">Home</li>
+            <li class="v8_11">Menu</li>
+            <li class="v8_12">Service</li>
+            <li class="v8_13">About Us</li>
+            <li class="v8_14">Contact</li>
+            <li class="v8_15">Log In</li>
+        </ul>
+        <div class="v1_4">
+            <span class="v1_5">Login</span>
+            <div class="v1_6"></div>
+            <div class="v2_0"></div>
+            <div class="v1_7"></div>
+            <div class="name"></div>
+            <div class="name"></div>
+            <span class="v11_4">Password</span>
+            <span class="v11_3">Email</span>
+            <span class="v11_2">Login</span>
+            <span class="v8_5">Delivery In Aja</span>
+            <div class="v8_6"></div>
+            <div class="v8_7"></div>
+            <div class="v8_8"></div>
+            <div class="v8_9"></div>
         </div>
     </div>
-</div>
+</body>
+
+</html>
